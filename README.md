@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/raghuchandan1/Project4-Microservices.svg?style=svg)](https://circleci.com/gh/raghuchandan1/Project4-Microservices)
 
 ## Project Overview
 
@@ -8,20 +8,16 @@ You are given a pre-trained, `sklearn` model that has been trained to predict ho
 
 ### Project Tasks
 
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
-* Test your project code using linting
-* Complete a Dockerfile to containerize this application
-* Deploy your containerized application using Docker and make a prediction
-* Improve the log statements in the source code for this application
-* Configure Kubernetes and create a Kubernetes cluster
-* Deploy a container using Kubernetes and make a prediction
-* Upload a complete Github repo with CircleCI to indicate that your code has been tested
+Operationalize a working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. This project includes:
+* Testing the project code using linting
+* A Dockerfile to containerize this application
+* Deploying the containerized application using Docker and making a prediction
+* Improving the log statements in the source code for this application
+* Configuring Kubernetes and creating a Kubernetes cluster
+* Deploying a container using Kubernetes and making a prediction
+* Uploading the complete Github repo with CircleCI to indicate that the code has been tested
 
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
-
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
-
----
+Y
 
 ## Setup the Environment
 
