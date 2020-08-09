@@ -1,1 +1,51 @@
-<paste log output from Kubernetes-mediated prediction, here>
+(base) raghu@raghu-Inspiron-5421:~/Project4-Microservices$ kubectl logs devops-bdcdf6ccb-89zfm
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 231-779-307
+172.17.0.1 - - [09/Aug/2020 16:16:29] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [09/Aug/2020 16:16:38] "GET /favicon.ico HTTP/1.1" 404 -
+[2020-08-09 16:24:59,959] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2020-08-09 16:24:59,997] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-08-09 16:25:00,023] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-08-09 16:25:00,031] INFO in app: Prediction: [20.35373177134412]
+127.0.0.1 - - [09/Aug/2020 16:25:00] "POST /predict HTTP/1.1" 200 -
+[2020-08-09 16:25:18,956] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2020-08-09 16:25:18,986] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-08-09 16:25:19,012] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-08-09 16:25:19,021] INFO in app: Prediction: [20.35373177134412]
+127.0.0.1 - - [09/Aug/2020 16:25:19] "POST /predict HTTP/1.1" 200 -
+
+
+(base) raghu@raghu-Inspiron-5421:~/Project4-Microservices$ kubectl get pod
+NAME                     READY   STATUS    RESTARTS   AGE
+devops-bdcdf6ccb-89zfm   1/1     Running   0          17m
+(base) raghu@raghu-Inspiron-5421:~/Project4-Microservices$ kubectl port-forward devops-bdcdf6ccb-89zfm 8000:80
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+Handling connection for 8000
+
+
+(base) raghu@raghu-Inspiron-5421:~/Project4-Microservices$ sudo ./make_prediction.sh 
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
